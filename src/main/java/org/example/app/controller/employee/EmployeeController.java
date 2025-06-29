@@ -130,6 +130,25 @@ public class EmployeeController {
 
 
 
+    @PutMapping
+    @RequestMapping("/{id}")
+    public ResponseEntity<?> updateEmployeeById(@PathVariable("id")Long id, @RequestBody EmployeeDtoRequest request){
+        try {
+            Employee employee = employeeService.updateById(id, request);
+
+            if(employee == null){
+                return formResponse("smth went wrong(employee with id " + id + " doesn't exist!");
+            }
+            return new ResponseEntity<>(employee, HttpStatus.OK);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(new AppError(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value()),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+
 
     private ResponseEntity<?> formResponse(String message){
         return new ResponseEntity<>(new HashMap<String, String>() {
