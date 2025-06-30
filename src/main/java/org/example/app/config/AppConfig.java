@@ -21,7 +21,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(value = "org.example.app")
+@ComponentScan(basePackages = "org.example.app")
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories(basePackages = "org.example.app.repository", 
         entityManagerFactoryRef = "entityManagerFactory")
