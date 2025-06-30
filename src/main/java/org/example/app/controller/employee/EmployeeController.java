@@ -4,6 +4,7 @@ package org.example.app.controller.employee;
 import org.example.app.dto.EmployeeDtoRequest;
 import org.example.app.dto.error.AppError;
 import org.example.app.entity.Employee;
+import org.example.app.service.BaseService;
 import org.example.app.service.employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -66,8 +67,7 @@ public class EmployeeController {
         }
     }
 
-    @GetMapping
-    @RequestMapping("/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") Long id){
         try {
             Employee employee = employeeService.readById(id);
@@ -91,8 +91,7 @@ public class EmployeeController {
 
 
 
-    @DeleteMapping
-    @RequestMapping("/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
 
         try {
@@ -109,8 +108,7 @@ public class EmployeeController {
 
     }
 
-    @GetMapping
-    @RequestMapping("/last")
+    @GetMapping("/last")
     public ResponseEntity<?> getLastEmployee(){
         try{
             Employee employee = employeeService.readLast();
@@ -130,8 +128,7 @@ public class EmployeeController {
 
 
 
-    @PutMapping
-    @RequestMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateEmployeeById(@PathVariable("id")Long id, @RequestBody EmployeeDtoRequest request){
         try {
             Employee employee = employeeService.updateById(id, request);

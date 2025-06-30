@@ -1,4 +1,4 @@
-package org.example.app.repository.position;
+package org.example.app.repository;
 
 import org.example.app.entity.Position;
 import org.springframework.data.jpa.repository.JpaRepository;

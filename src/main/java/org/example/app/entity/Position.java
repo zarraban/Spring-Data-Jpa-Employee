@@ -23,6 +23,6 @@ public class Position {
     @Column(name = "position_name")
     private String nameOfPosition;
 
-    @OneToMany(mappedBy = "position")
+    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Employee> listOfWorkers;
 }
