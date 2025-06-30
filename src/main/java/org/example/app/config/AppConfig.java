@@ -35,10 +35,9 @@ public class AppConfig {
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(){
-        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
-        jpaTransactionManager.setEntityManagerFactory(entityManagerFactory());
-        return jpaTransactionManager;
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
+        return new JpaTransactionManager(entityManagerFactory);
+
     }
 
     @Bean
@@ -60,6 +59,7 @@ public class AppConfig {
         localContainerEntityManagerFactoryBean.setPackagesToScan("org.example.app.entity");
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         localContainerEntityManagerFactoryBean.setJpaProperties(additionalProperties());
+        localContainerEntityManagerFactoryBean.setEntityManagerFactoryInterface(jakarta.persistence.EntityManagerFactory.class);
         // Ensure the factory bean is fully initialized
         localContainerEntityManagerFactoryBean.afterPropertiesSet();
 
@@ -74,8 +74,5 @@ public class AppConfig {
         return properties;
     }
 
-    @Bean(name = "entityManagerFactory")
-    public EntityManagerFactory entityManagerFactory() {
-        return entityManagerFactoryBean().getObject();
-    }
+
 }
