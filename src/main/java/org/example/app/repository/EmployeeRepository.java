@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
 
-    @Query("FROM Employee e ORDER BY e.id DESC")
+    @Query(value = "SELECT * FROM employees e ORDER BY e.id DESC LIMIT 1", nativeQuery = true)
     Optional<Employee> getLast();
 }
