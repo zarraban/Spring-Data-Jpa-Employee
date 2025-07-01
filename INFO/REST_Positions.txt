@@ -1,0 +1,17 @@
+GET
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/positions
+
+
+POST
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/positions
+{
+    "position_name":"Cleaner"
+}
+
+DELETE
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/positions/5
+
+{
+    "message": "Successfully deleted!",
+    "statusCode": "200"
+}
