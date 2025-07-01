@@ -37,7 +37,7 @@ public class EmployeeController {
                 return  formResponse("List is empty!");
             }
 
-            return new ResponseEntity<>(list, HttpStatus.OK);
+            return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
 
         }
         catch (Exception e){
@@ -56,8 +56,8 @@ public class EmployeeController {
 
             if(employee==null){
                 return new ResponseEntity<>(
-                        new AppError("position_id is invalid", HttpStatus.OK.value()),
-                        HttpStatus.OK);
+                        new AppError("position_id is invalid", HttpStatus.NOT_FOUND.value()),
+                        HttpStatus.NOT_FOUND);
             }
             return new ResponseEntity<>(employee, HttpStatus.OK);
         } catch (Exception e) {
@@ -151,8 +151,8 @@ public class EmployeeController {
         return new ResponseEntity<>(new HashMap<String, String>() {
             {
                 put("message", message);
-                put("statusCode", HttpStatus.OK.name());
+                put("statusCode", HttpStatus.NOT_FOUND.name());
             }
-        }, HttpStatus.OK);
+        }, HttpStatus.NOT_FOUND);
     }
 }
