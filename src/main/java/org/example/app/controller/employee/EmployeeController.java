@@ -36,7 +36,7 @@ public class EmployeeController {
                 return  formResponse("List is empty!");
             }
 
-            return new ResponseEntity<>(list, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(list, HttpStatus.OK);
 
         }
         catch (Exception e){
@@ -95,7 +95,12 @@ public class EmployeeController {
 
         try {
             if(employeeService.deleteById(id)){
-                return formResponse("Successfully deleted!");
+                return new ResponseEntity<>(new HashMap<String, String>() {
+                    {
+                        put("message", "Successfully deleted!");
+                        put("statusCode", HttpStatus.OK.name());
+                    }
+                }, HttpStatus.OK);
             }
 
             return formResponse("Deleting failed!");
@@ -107,7 +112,7 @@ public class EmployeeController {
 
     }
 
-    @GetMapping("/last")
+    @GetMapping( "/last")
     public ResponseEntity<?> getLastEmployee(){
         try{
             Employee employee = employeeService.readLast();
