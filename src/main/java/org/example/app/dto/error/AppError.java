@@ -1,8 +1,8 @@
 package org.example.app.dto.error;
 
 public class AppError {
-    private String message;
-    private int statusCode;
+    private final String message;
+    private final int statusCode;
     private final static String ERROR_MESSAGE = "Error occurred: ";
 
     public AppError(

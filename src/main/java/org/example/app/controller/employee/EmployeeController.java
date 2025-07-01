@@ -4,7 +4,6 @@ package org.example.app.controller.employee;
 import org.example.app.dto.EmployeeDtoRequest;
 import org.example.app.dto.error.AppError;
 import org.example.app.entity.Employee;
-import org.example.app.service.BaseService;
 import org.example.app.service.employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
