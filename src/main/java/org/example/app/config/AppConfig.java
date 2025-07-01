@@ -52,16 +52,14 @@ public class AppConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
         LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean =
                 new LocalContainerEntityManagerFactoryBean();
         localContainerEntityManagerFactoryBean.setDataSource(dataSource());
         localContainerEntityManagerFactoryBean.setPackagesToScan("org.example.app.entity");
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         localContainerEntityManagerFactoryBean.setJpaProperties(additionalProperties());
-        localContainerEntityManagerFactoryBean.setEntityManagerFactoryInterface(jakarta.persistence.EntityManagerFactory.class);
-        // Ensure the factory bean is fully initialized
-        localContainerEntityManagerFactoryBean.afterPropertiesSet();
+
 
         return localContainerEntityManagerFactoryBean;
     }
