@@ -1,0 +1,60 @@
+GET
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employee
+
+{
+    "message": "List is empty!",
+    "statusCode": "NOT_FOUND"
+}
+
+
+POST
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees
+
+{
+    "first_name":"Ann",
+    "last_name":"Milkovski",
+    "phone":"+380954334565",
+    "position_id":"1"
+
+}
+
+{
+    "first_name":"Vlad",
+    "last_name":"Alexeev",
+    "phone":"+380954667560",
+    "position_id":"2"
+
+}
+
+{
+    "first_name":"Antony",
+    "last_name":"Lurik",
+    "phone":"+380954655561",
+    "position_id":"3"
+
+}
+
+GET
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees/1
+
+
+PUT
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees/1
+{
+    "first_name":"Ann",
+    "last_name":"Antonova",
+    "phone":"+380954334565",
+    "position_id":"1"
+}
+
+GET
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees/1
+
+
+
+DELETE
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees/2
+
+
+GET
+http://localhost:8080/Spring-Data-Jpa-Employee-1.0-SNAPSHOT/api/v1/employees/last
